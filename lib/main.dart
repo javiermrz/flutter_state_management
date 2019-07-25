@@ -31,8 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final sliderBloc = SliderBloc();
-  double _globalSliderValue;
+  final progressBarBloc = ProgressBarBloc();
+  double _globalProgressBarValue;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: BlocBuilder<SliderBloc, ProgressBarState>(
-          bloc: sliderBloc,
+        child: BlocBuilder<ProgressBarBloc, ProgressBarState>(
+          bloc: progressBarBloc,
           builder: (context, ProgressBarState state) {
             if (state is InitialProgressBarState) {
               return _buildProgressIndicator(0.5);
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildProgressIndicator(double progressValue) {
-    _globalSliderValue = progressValue;
+    _globalProgressBarValue = progressValue;
     return Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -94,11 +94,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _increaseSliderValue() {
-    sliderBloc.dispatch(Increase(_globalSliderValue));
+    progressBarBloc.dispatch(Increase(_globalProgressBarValue));
   }
 
   _decreaseSliderValue() {
-    sliderBloc.dispatch(Decrease(_globalSliderValue));
+    progressBarBloc.dispatch(Decrease(_globalProgressBarValue));
   }
 
   @override

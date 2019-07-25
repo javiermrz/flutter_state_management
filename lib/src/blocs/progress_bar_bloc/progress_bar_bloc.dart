@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import './bloc.dart';
 
-class SliderBloc extends Bloc<ProgressBarEvent, ProgressBarState> {
+class ProgressBarBloc extends Bloc<ProgressBarEvent, ProgressBarState> {
   @override
   ProgressBarState get initialState => InitialProgressBarState();
+  StreamSubscription progressBarValuesSubscription;
 
   @override
   Stream<ProgressBarState> mapEventToState(
