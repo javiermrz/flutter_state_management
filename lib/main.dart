@@ -60,11 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           MyButton(
             icon: Icons.remove,
-            onPressed: _decreaseSliderValue,
+            onPressed: _decreaseProgressBarValue,
           ),
           MyButton(
             icon: Icons.add,
-            onPressed: _increaseSliderValue,
+            onPressed: _increaseProgressBarValue,
           ),
         ],
       ),
@@ -93,11 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ]));
   }
 
-  _increaseSliderValue() {
+  _increaseProgressBarValue() {
     progressBarBloc.dispatch(Increase(_globalProgressBarValue));
   }
 
-  _decreaseSliderValue() {
+  _decreaseProgressBarValue() {
     progressBarBloc.dispatch(Decrease(_globalProgressBarValue));
   }
 
