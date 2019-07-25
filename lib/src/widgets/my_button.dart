@@ -35,4 +35,9 @@ class _MyButtonState extends State<MyButton> {
   void _onPressed() {
     widget.onPressed();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }
