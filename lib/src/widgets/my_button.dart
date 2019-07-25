@@ -22,7 +22,7 @@ class _MyButtonState extends State<MyButton> {
         shape: CircleBorder(),
         onPressed: _onPressed,
         splashColor: appAccentColor,
-        color: appSecondaryContrastColor,
+        color: appPrimaryColor,
         child: Icon(
           widget.icon,
           size: 32,

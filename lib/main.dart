@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_management/src/style.dart';
 import 'package:flutter_state_management/src/widgets/my_button.dart';
-import 'package:flutter_state_management/src/widgets/my_slider.dart';
+import 'package:flutter_state_management/src/widgets/my_progress_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,11 +11,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter State Management Demo',
       theme: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.orange,
-          canvasColor: Colors.transparent
-          //primarySwatch: Colors.blue,
-          ),
+        accentColor: appAccentColor,
+        brightness: Brightness.dark,
+        primarySwatch: Colors.orange,
+        canvasColor: Colors.transparent,
+      ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -45,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 20,
               ),
             ),
-            MySlider()
+            MyProgressBar(
+              value: 0.5,
+            )
           ],
         ),
       ),
@@ -54,21 +57,21 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           MyButton(
             icon: Icons.remove,
-            onPressed: _increaseSliderValue,
+            onPressed: _decreaseProgressBarValue,
           ),
           MyButton(
             icon: Icons.add,
-            onPressed: _increaseSliderValue,
+            onPressed: _increaseProgressBarValue,
           ),
         ],
       ),
     );
   }
 
-  _increaseSliderValue() {
+  _increaseProgressBarValue() {
     //Some logic here
   }
-  _decreaseSliderValue() {
+  _decreaseProgressBarValue() {
     //Some logic here
   }
 }
