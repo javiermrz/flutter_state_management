@@ -25,14 +25,14 @@ class ProgressBarBloc extends Bloc<ProgressBarEvent, ProgressBarState> {
 
   Future<double> _fetchNextValueOnIncreaseFromFakeApi(double previousValue) {
     previousValue = num.parse(previousValue.toStringAsFixed(2));
-    return Future.delayed(Duration(milliseconds: 400), () {
+    return Future.delayed(Duration(milliseconds: 1000), () {
       return previousValue < 1 ? previousValue + 0.1 : previousValue;
     });
   }
 
   Future<double> _fetchNextValueOnDecreaseFromFakeApi(double previousValue) {
     previousValue = num.parse(previousValue.toStringAsFixed(2));
-    return Future.delayed(Duration(milliseconds: 400), () {
+    return Future.delayed(Duration(milliseconds: 1000), () {
       return previousValue > 0 ? previousValue - 0.1 : previousValue;
     });
   }

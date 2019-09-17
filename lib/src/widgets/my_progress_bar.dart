@@ -8,7 +8,6 @@ class MyProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return LinearProgressIndicator(
       backgroundColor: appSecondaryColor,
-      valueColor: AlwaysStoppedAnimation(appAccentColor),
       value: value,
     );
   }

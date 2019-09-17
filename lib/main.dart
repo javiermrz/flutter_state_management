@@ -73,8 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildLoading() {
     return Center(
-      child: CircularProgressIndicator(),
-    );
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+          _infoMessage(),
+          LinearProgressIndicator(
+            backgroundColor: appSecondaryColor,
+            valueColor: AlwaysStoppedAnimation(appAccentColor),
+          ),
+        ]));
   }
 
   Widget _buildProgressIndicator(double progressValue) {
@@ -83,14 +90,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-          Text(
-            'Click some button to move me',
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
+          _infoMessage(),
           MyProgressBar(value: progressValue)
         ]));
+  }
+
+  Widget _infoMessage() {
+    return Text(
+      'Click some button to move me',
+      style: TextStyle(
+        fontSize: 20,
+      ),
+    );
   }
 
   _increaseProgressBarValue() {
